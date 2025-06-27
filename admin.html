@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Image Gallery</title>
+    <title>Question Era</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -426,13 +426,13 @@
                         <div class="option" data-value="math">
                             <i class="fas fa-calculator"></i> Mathematics
                         </div>
-                        <div class="option" data-value="physics">
+                        <div class="option" data-value="phy">
                             <i class="fas fa-atom"></i> Physics
                         </div>
-                        <div class="option" data-value="chemistry">
+                        <div class="option" data-value="chem">
                             <i class="fas fa-flask"></i> Chemistry
                         </div>
-                        <div class="option" data-value="biology">
+                        <div class="option" data-value="bio">
                             <i class="fas fa-dna"></i> Biology
                         </div>
                     </div>
@@ -457,22 +457,22 @@
 
     <div class="container">
         <h1>Queston Era</h1>
-        <p class="subtitle">From Accademmy to Admission all type of question collection.</p>
+        <p class="subtitle">From Accademmy to Admission all t[ype of question collection.</p>
 
         <div class="order-container">
-            <div class="order-item" data-category="nature">
+            <div class="order-item" id="addd" typee="ad" data-category="nature">
                 <img src="https://firebasestorage.googleapis.com/v0/b/test2-5bbd8.appspot.com/o/chat%2F96105c50-2bc9-4197-80c7-5fd8ac459ce2.png?alt=media&token=daad5c7a-e2d4-4525-906a-077c339a56f2"
                     alt="Nature">
                 <div class="order-label">Admission</div>
             </div>
 
-            <div class="order-item" data-category="architecture">
+            <div class="order-item" typee="board" data-category="architecture">
                 <img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
                     alt="Architecture">
                 <div class="order-label">Board</div>
             </div>
 
-            <div class="order-item" data-category="technology">
+            <div class="order-item" typee="test" data-category="technology">
                 <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
                     alt="Technology">
                 <div class="order-label">Model Test</div>
@@ -504,6 +504,7 @@
     </div>
 
     <script>
+              window.type1=""
         document.addEventListener('DOMContentLoaded', function () {
             const orderItems = document.querySelectorAll('.order-item');
             const galleries = {
@@ -559,11 +560,16 @@
                 });
             }
 
-            // Add click event to order items
+      
+                        // Add click event to order items
             orderItems.forEach(item => {
                 item.addEventListener('click', function () {
                     const category = this.getAttribute('data-category');
 
+                    const typee = this.getAttribute('typee');
+
+
+                    window.type1=typee;                    
 
 
 
@@ -599,12 +605,12 @@
         });
 
 
-
+window.name1=''
         window.selectt = async function (namee) {
             document.body.style.overflow = 'hidden';
 
             console.log(namee);
-
+            name1=namee.toLowerCase()
 
 
             document.getElementById("overlay").style.display = "flex";
@@ -617,7 +623,7 @@
             const fruits = [];
 
             fruits.length = 0;
-            for (let i = 2021; i >= 1996; i--) {
+            for (let i = 2021; i >= 1998; i--) {
                 fruits.push(i); // Insert values
             }
 
@@ -678,12 +684,24 @@
                 return 7;
             }
 
+            if (selectedSubject.trim() == 'math'  ) {
+                alert("Math not supplied yet");
+                return 7;
+            }
+    
+
             console.log("Selected value:", selectedValue);
-            console.log(selectedSubject);
+           
 
 
+            history.back()
 
-
+            if(wh=="view"){
+                window.open(`./view.html?type=${type1}&name=${window.name1}&sub=${selectedSubject}&year=${selectedValue}`,"_self")
+            }else{
+                window.open(`./test.html?type=${type1}&name=${window.name1}&sub=${selectedSubject}&year=${selectedValue}`,"_self")
+            }
+            
 
 
 
@@ -692,6 +710,15 @@
 
 
         };
+
+
+        setTimeout(() => {
+            const button = document.getElementById('addd');
+
+// Trigger a click
+button.click();
+        }, 500);
+
     </script>
 </body>
 
